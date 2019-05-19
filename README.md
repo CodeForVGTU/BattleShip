@@ -1,7 +1,7 @@
 # BattleShip
 ## BattleShip game written in OOP C++ language.
 
-Hello everyone, I would like to share with you my BattleShip application written in C++ language.
+Hello everyone, I would like to share with you my BattleShip application which I created in Microsoft Visual Studio 2019.
 
 ![BattleShip](https://i.imgur.com/Xh6A6na.png)
 
