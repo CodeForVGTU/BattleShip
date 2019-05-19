@@ -8,9 +8,9 @@ Hello everyone, I would like to share with you my BattleShip application written
 The main idea behind creating this game was to use Object Oriented Programing.
 
 This game has different file classes to handle various processes:
-  #Player.cpp & Player.h to get correct input and place ships on board.
-  #Computer.cpp & Computer.h to place ships on CPU board randomly.
-  #Shooting.cpp & Shooting.h to initialize shooing. Also, smart shooting of CPU is here too.
+  #Player.cpp & Player.h to get correct input and place ships on the board.
+  #Computer.cpp & Computer.h to place ships on the CPU board randomly.
+  #Shooting.cpp & Shooting.h to initialize shooing. Also, smart shooting of CPU is here.
   
 One of the hardest task was to create "Smart CPU". It means then CPU hits your ship, next turn it has to shoot next to sunken ship.
 
