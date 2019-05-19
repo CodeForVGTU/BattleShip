@@ -3,6 +3,8 @@ BattleShip game written in OOP C++ language.
 
 Hello everyone, I would like to share with you my BattleShip application written in C++ language.
 
+![BattleShip](https://i.imgur.com/Xh6A6na.png)
+
 The main idea behind creating this game was to use Object Oriented Programing.
 
 This game has different file classes to handle various processes:
