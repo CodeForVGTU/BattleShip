@@ -47,10 +47,14 @@ int main() {
 	C[i].Update_Computer_Grid();
 	C[i].Update_Player_Grid();
 
-	if (Count_Computer == 20)
+	if (Count_Computer == 20) {
 		cout << "\n   Computer WON!";
-	else
+		PlaySound("lose.wav", GetModuleHandle(NULL), SND_FILENAME | SND_ASYNC);
+	}
+	else {
 		cout << "\n   Player Won!";
+		PlaySound("win.wav", GetModuleHandle(NULL), SND_FILENAME | SND_ASYNC);
+	}
 
 	cout << endl;
 	system("pause");
@@ -94,7 +98,7 @@ void Menu() {
 			cout << "                            Credits\n";
 			cout << "         ---------------------------------------------\n";
 			cout << "         Created by VGTU PRIfs 18/6 student - Rimvydas Kanapka\n";
-			cout << "         Game is created with OOP C++\n";
+			cout << "         Game is created with OOP C++ 2019\n";
 			cout << "         Vilnius Gedimas Technology University\n\n";
 
 			system("pause");

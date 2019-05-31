@@ -3,8 +3,8 @@
 
 using namespace std;
 
-const int EIL1 = 12;
-const int STULP1 = 12;
+const int EIL1 = 13;
+const int STULP1 = 13;
 extern int Board1[EIL1 + 1][STULP1 + 1];
 
 class Computer {

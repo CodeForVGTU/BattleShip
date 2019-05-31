@@ -1,6 +1,7 @@
 #include "Player.h"
 #include <iostream>
 #include <String>
+#include <windows.h>
 
 using namespace std;
 
@@ -24,17 +25,23 @@ Player::~Player() {} //Destructor
 
 void Player::Draw_Board()
 {
+	HANDLE hConsole;
+	hConsole = GetStdHandle(STD_OUTPUT_HANDLE);
+
 	cout << "                   Player\n            0 1 2 3 4 5 6 7 8 9\n";
 	char letter = 'A';
 
-	for (int i = 1; i < EIL - 1; i++) {
+	for (int i = 1; i < EIL - 2; i++) {
 		cout << "          " << letter++ << " ";
-		for (int j = 1; j < STULP - 1; j++) {
+		for (int j = 1; j < STULP - 2; j++) {
 
 			if (Board[i][j] == 0 || Board[i][j] == 2) // 0 for free Coordinate; 2 for Ship sides
 				cout << ". ";
-			else if (Board[i][j] == 1) // 1 for SHIP
-				cout << "0 ";
+			else if (Board[i][j] == 1) { // 1 for SHIP
+				SetConsoleTextAttribute(hConsole, 160);
+				cout << "X ";
+				SetConsoleTextAttribute(hConsole, 7);
+			}
 		}
 		cout << endl;
 	}

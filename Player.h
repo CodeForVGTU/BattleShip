@@ -5,8 +5,8 @@
 
 using namespace std;
 
-const int EIL = 12;
-const int STULP = 12;
+const int EIL = 13;
+const int STULP = 13;
 extern int Board[EIL + 1][STULP + 1];
 
 class Player {

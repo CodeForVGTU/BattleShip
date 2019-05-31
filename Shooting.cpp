@@ -5,6 +5,8 @@
 #include <string>
 #include <ctime> // time for random
 #include <vector>
+#include <Windows.h>
+#pragma comment(lib, "Winmm.lib")
 
 using namespace std;
 
@@ -58,29 +60,41 @@ void Shooting::Input_Coord()
 }
 void Shooting::Draw_Shooting()
 {
+	HANDLE hConsole;
+	hConsole = GetStdHandle(STD_OUTPUT_HANDLE);
+
 	cout << "                   Player                         Computer\n            0 1 2 3 4 5 6 7 8 9             0 1 2 3 4 5 6 7 8 9\n";
 	char letter = 'A';
 
-	for (int i = 1; i < EIL - 1; i++) {
+	for (int i = 1; i < EIL - 2; i++) {
 		//PLAYER
 		cout << "          " << letter << " ";
-		for (int j = 1; j < STULP - 1; j++) {
+		for (int j = 1; j < STULP - 2; j++) {
 			if (Board[i][j] == 0 || Board[i][j] == 2) // 0 for free Coordinate; 2 for Ship sides
 				cout << ". ";
-			else if (Board[i][j] == 3)
+			else if (Board[i][j] == 3) {
+				SetConsoleTextAttribute(hConsole, 64);
 				cout << "X ";
+				SetConsoleTextAttribute(hConsole, 7);
+			}
 			else if (Board[i][j] == 4)
 				cout << "* ";
-			else if (Board[i][j] == 1) // 1 for SHIP
-				cout << "0 ";
+			else if (Board[i][j] == 1) { // 1 for SHIP
+				SetConsoleTextAttribute(hConsole, 160);
+				cout << "X ";
+				SetConsoleTextAttribute(hConsole, 7);
+			}
 		}
 		//COMPUTER
 		cout << "          " << letter++ << " ";
-		for (int j = 1; j < STULP - 1; j++) {
+		for (int j = 1; j < STULP - 2; j++) {
 			if (Board1[i][j] == 2 || Board1[i][j] == 1 || Board1[i][j] == 0) // 0 - EMPTY PLACE; 1 - SHIP; 2 - SHIP SIDES;
 				cout << ". ";
-			else if (Board1[i][j] == 3) // HITTED SHIP
+			else if (Board1[i][j] == 3) { // HITTED SHIP
+				SetConsoleTextAttribute(hConsole, 64);
 				cout << "X ";
+				SetConsoleTextAttribute(hConsole, 7);
+			}
 			else if (Board1[i][j] == 4) //UNHITTED SHIP
 				cout << "* ";
 		}
@@ -109,6 +123,7 @@ void Shooting::Update_Player_Grid()
 			if (Board[x][y] == 1) {
 				Board[x][y] = 3; // 3 if hit
 				cout << "   CPU HIT!\n";
+				//PlaySound("shoot.wav", GetModuleHandle(NULL), SND_FILENAME | SND_ASYNC);
 				Count_Computer++;
 
 				//////////////////////////////////////////////////////////////////////////////// smart shooting
@@ -250,8 +265,10 @@ void Shooting::Update_Player_Grid()
 				//////////////////////////////////////////////////////////////////////////////////
 
 			}
-			else if (Board[x][y] == 2 || Board[x][y] == 0)
+			else if (Board[x][y] == 2 || Board[x][y] == 0) {
+				//PlaySound("miss.wav", GetModuleHandle(NULL), SND_FILENAME | SND_ASYNC);
 				Board[x][y] = 4; // 4 if missed
+			}
 			break;
 		}
 		else { //Else for ship coordinates collision
@@ -276,10 +293,13 @@ void Shooting::Update_Computer_Grid()
 			if (Board1[x][y] == 1) {
 				Board1[x][y] = 3; // 3 if hit
 				cout << "   Player HIT!\n";
+				PlaySound("hit.wav", GetModuleHandle(NULL), SND_FILENAME | SND_ASYNC);
 				Count_Player++;
 			}
-			else if (Board1[x][y] == 2 || Board1[x][y] == 0)
+			else if (Board1[x][y] == 2 || Board1[x][y] == 0) {
+				PlaySound("miss.wav", GetModuleHandle(NULL), SND_FILENAME | SND_ASYNC);
 				Board1[x][y] = 4; // 4 if missed
+			}
 			break;
 		}
 		else
