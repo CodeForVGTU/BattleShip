@@ -3,7 +3,7 @@
 
 Hello everyone, I would like to share with you my BattleShip application which I created in Microsoft Visual Studio 2019.
 
-![BattleShip](https://i.imgur.com/Xh6A6na.png)
+![BattleShip](https://i.imgur.com/Ta8URxh.png)
 
 The main idea behind creating this game was to use Object Oriented Programing.
 
