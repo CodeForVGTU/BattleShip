@@ -13,6 +13,3 @@ This game has different file classes to handle various processes:
   #Shooting.cpp & Shooting.h to initialize shooing. Also, smart shooting of CPU is here.
   
 One of the hardest task was to create "Smart CPU". It means then CPU hits your ship, next turn it has to shoot next to sunken ship.
-
-### I am waiting for recommendations to improve the code. I know it is messy, so I am looking forward to improve it!
-
